@@ -108,4 +108,12 @@ class CarrerasController extends Controller
           'alias' => $recorrido
         ])->id;
     }
+
+    public function importarForm() {
+        return view('carreras.importarForm');
+    }
+
+    public function importarProcesado(Request $request) {
+        return redirect('/carreras/listado');
+    }
 }

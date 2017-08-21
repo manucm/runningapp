@@ -68,6 +68,9 @@ Route::group(['middleware' => 'autenticado'], function() {
         Route::delete('/baja/{usuario}/{carrera}', ['uses' => 'CarrerasController@delete']);
         Route::get('/listado', ['uses' => 'CarrerasController@listado']);
         Route::get('/listado/dynatable', ['uses' => 'CarrerasController@dynatable']);
+        Route::get('/importar', ['uses' => 'CarrerasController@importarForm']);
+        Route::post('/importar', ['uses' => 'CarrerasController@importarProcesado']);
+
     });
 
     /**
