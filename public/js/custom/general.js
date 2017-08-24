@@ -28,3 +28,12 @@ $('.dynatable').dynatable({
     defaultColumnIdStyle: 'camelCase'
   }
 });
+
+/**
+* Subir ficheros, aportando estilos
+*/
+$('.file-upload').change(function(information) {
+  var filename = $(this).val().toString();
+  var input = $('.file-upload-visible').eq(0);
+input.val(filename);
+});

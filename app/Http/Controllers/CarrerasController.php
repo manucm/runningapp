@@ -9,9 +9,11 @@ use App\Modelos\Vuelta;
 use App\Modelos\Usuario;
 use App\Modelos\Carrera;
 use App\Modelos\Recorrido;
-use Illuminate\Http\Request;
 use App\Modelos\Estadistica;
+use App\Modelos\Aplicaciones;
+use App\Clases\Excel\UserListImport;
 use App\Http\Requests\CarreraRequest;
+use App\Clases\Excel\Interfaces\IProcesaExcel;
 use App\Clases\Operaciones\CalculaEstadistica;
 
 class CarrerasController extends Controller
@@ -110,10 +112,26 @@ class CarrerasController extends Controller
     }
 
     public function importarForm() {
-        return view('carreras.importarForm');
+        $aplicaciones = Aplicaciones::all()->pluck('nombre', 'id');
+        return view('carreras.importarForm', compact('aplicaciones'));
     }
 
-    public function importarProcesado(Request $request) {
+    private function procesaNombreFicheroVueltas($name) {
+        return collect(explode('.', collect(explode('_', $name))->last()))->first();
+    }
+
+    public function procesaExcel() {
+      ///  dd($request->file());
+    //  dd($import->getActiveSheet()->getFileName());
+    $vueltaName = $this->procesaNombreFichero($import->getFileName());
+    }
+
+    public function importarProcesado(UserListImport $import, IProcesaExcel $procesaExcel) {
+
+        $carreras = $import->get();
+
+        $resultado = $procesaExcel->importaCarrera($carreras);
+
         return redirect('/carreras/listado');
     }
 }

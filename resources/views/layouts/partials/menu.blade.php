@@ -17,7 +17,7 @@
         <div class="dropdown-menu">
           <a class="dropdown-item" href="{{ url('/carreras/creacion') }}">Crear Carrera</a>
           <a class="dropdown-item" href="{{ url('/carreras/listado') }}">Ver mis carreras</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="{{ url('/carreras/importar') }}">Importar Carreras</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Separated link</a>
         </div>

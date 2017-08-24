@@ -181,6 +181,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
         App\Providers\CollectionsServiceProvider::class,
+        App\Providers\ProcesadorExcelServiceProvider::class,
 
     ],
 
@@ -237,6 +238,9 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         //Proyecto
+
+        //Laravel
+        'Input' => Illuminate\Support\Facades\Input::class,
 
     ],
 
