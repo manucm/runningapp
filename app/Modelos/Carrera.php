@@ -12,7 +12,9 @@ class Carrera extends ModeloBase
     protected $table = 'carreras';
 
     protected $fillable = ['alias', 'distancia', 'tiempo', 'fecha',
-      'temperatura', 'comentario', 'recorrido_id', 'usuario_id', 'records',
+      'temperatura', 'comentario', 'recorrido_id', 'usuario_id', 'records', 'codigoAlternativo',
+      'favorito', 'calorias', 'actividad_tipo_id', 'ritmo_medio', 'mejor_ritmo', 'aplicacion_id',
+      'ganancia_altura', 'altura_perdida',
     ];
 
     protected $casts = [

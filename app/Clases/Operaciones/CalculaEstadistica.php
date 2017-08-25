@@ -28,6 +28,16 @@ class CalculaEstadistica
         $this->estadistica->save();
     }
 
+    public function sumaTiempo($value) {
+        $this->estadistica->tiempo += $value;
+        $this->estadistica->save();
+    }
+
+    public function sumaDistancia($value) {
+        $this->estadistica->distanciaRecorrida += $value;
+        $this->estadistica->save();
+    }
+
     public function actualizaTiempoDistancia($vueltas, $oldDistancia = false, $oldTiempo = false) {
 
         $tiempo = ($oldTiempo)? $this->estadistica->tiempo - $oldTiempo : $this->estadistica->tiempo;
