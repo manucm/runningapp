@@ -66,6 +66,4 @@ class ProcesaExcelGarmin implements IProcesaExcel
     private function getRecorrido() {
         return Recorrido::whereAlias('garmin')->first()->id;
     }
-
-
 }

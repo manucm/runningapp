@@ -20,4 +20,15 @@ class Utils
         $segundos = $tiempo - $minutos * 60;
         return floatval($minutos . '.' . $segundos);
     }
+
+    public function tiempoStringToSeconds($value) {
+        return collect(explode(':', $value))
+                      ->reverse()
+                      ->values()
+                      ->map(function($value, $index) {
+                          return intval($value) * pow(60, $index);
+                      })->reduce(function($total, $value) {
+                          return $total + $value;
+                      });
+    }
 }
